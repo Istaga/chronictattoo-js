@@ -9,4 +9,5 @@ describe('getFibonacciUntil() function', () => {
 
     expect(result).to.equal(expected);
   });
+
 });

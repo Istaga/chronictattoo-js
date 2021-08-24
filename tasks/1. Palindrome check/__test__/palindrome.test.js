@@ -14,5 +14,6 @@ describe('isPalindrome() function', () => {
     const inputString = 'racecar';
 
     expect(isPalindrome(inputString)).to.equal(true);
-  })
+  });
+
 });

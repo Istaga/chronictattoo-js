@@ -36,4 +36,18 @@ describe('areParenthesesBalanced() function', () => {
 
     expect(areParenthesesBalanced(input)).to.equal(true);
   });
+
+  it('should return TRUE if the input contains gibberish between parentheses', function() {
+
+    const input = '(h{{ere{are{some}c}h}a}r)s';
+
+    expect(areParenthesesBalanced(input)).to.equal(true);
+  });
+
+  it('should return TRUE if the input contains different tyoes of ({[parenttheses]})', function() {
+
+    const input = '[{[]}[]]';
+
+    expect(areParenthesesBalanced(input)).to.equal(true);
+  });
 });
