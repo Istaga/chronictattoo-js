@@ -1,5 +1,5 @@
 import 'chai/register-expect';
-import { encryptCaesar } from '../caesar';
+import { encryptCaesar, bruteDecrypt } from '../caesar';
 
 describe('encryptCaesar() function', () => {
 
@@ -8,6 +8,11 @@ describe('encryptCaesar() function', () => {
   it('should encrypt \'GAMEOFTHRONES\' to HBNFPGUISPOFT with key 1', function () {
 
     expect(encryptCaesar('GAMEOFTHRONES', 1)).to.equal('HBNFPGUISPOFT');
+  });
+
+  it('should decrypt \'kptia\' to joshz with key -1', function () {
+
+    expect(encryptCaesar('kptia', -1)).to.equal('joshz');
   });
 
   it('should encrypt \'GAMEOFTHRONES\' to JDPHRIWKURQHV with key 3', function () {
@@ -20,13 +25,23 @@ describe('encryptCaesar() function', () => {
     expect(encryptCaesar('XYZ', 4)).to.equal('BCD');
   });
 
-  it('z + 2 should be b', function () {
+  it('a decrypted with -1 should be z', function () {
 
-    expect(encryptCaesar('z', 2)).to.equal('b');
+    expect(encryptCaesar('a', -1)).to.equal('z');
   });
 
   it('[BONUS] JDPHRIWKURQHV decrypted should be GAMEOFTHRONES', function () {
 
     expect(encryptCaesar('JDPHRIWKURQHV', -3)).to.equal('GAMEOFTHRONES');
+  });
+
+  it('[BONUS] "OCDNwjipnRVNapiOJnjgqz" {the real key is -21, btw} decrypted without a key should be "THISbonusWASfunTOsolve"', function () {
+
+    expect(bruteDecrypt('OCDNwjipnRVNapiOJnjgqz')).to.equal('THISbonusWASfunTOsolve');
+  });
+
+  it('[BONUS] "amBOASwgFOXYCpihWHGdfcbcibqsrFOWYC" decrypted without a key should be "myNAMEisRAJKObutITSpronouncedRAIKO"', function () {
+
+    expect(bruteDecrypt("amBOASwgFOXYCpihWHGdfcbcibqsrFOWYC")).to.equal("myNAMEisRAJKObutITSpronouncedRAIKO");
   });
 });
