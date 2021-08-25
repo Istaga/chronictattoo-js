@@ -1,3 +1,4 @@
 export function Reduce(array, reducer, initialValue) {
-  // TODO: write your code here
+  array.map(x => initialValue = reducer(initialValue, x))
+  return initialValue
 }

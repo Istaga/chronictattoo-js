@@ -19,4 +19,14 @@ describe('encryptCaesar() function', () => {
 
     expect(encryptCaesar('XYZ', 4)).to.equal('BCD');
   });
+
+  it('z + 2 should be b', function () {
+
+    expect(encryptCaesar('z', 2)).to.equal('b');
+  });
+
+  it('[BONUS] JDPHRIWKURQHV decrypted should be GAMEOFTHRONES', function () {
+
+    expect(encryptCaesar('JDPHRIWKURQHV', -3)).to.equal('GAMEOFTHRONES');
+  });
 });
